@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function required() {
+            var name = 
+                document.forms["RegForm"]["Name"];
+            var email = 
+                document.forms["RegForm"]["EMail"];
+            var phone = 
+                document.forms["RegForm"]["Contact"];
+            var what = 
+                document.forms["RegForm"]["I'd Proof"];
+            var age = 
+                document.forms["RegForm"]["Age"];
+            var gender = 
+                document.forms["RegForm"]["Gender"];    
+
+            if (name.value == "") {
+                window.alert("Please enter your name.");
+                name.focus();
+                return false;
+            }
+            if (email.value == "") {
+                window.alert(
+                  "Please enter a valid e-mail address.");
+                email.focus();
+                return false;
+            }
+
+            if (phone.value == "") {
+                window.alert(
+                  "Please enter your telephone number.");
+                phone.focus();
+                return false;
+            }
+
+            if (age.value == "") {
+                window.alert("Please enter your age");
+                age.focus();
+                return false;
+            }
+            if (gender.value == "") {
+                window.alert("Please select your gender");
+                gender.focus();
+                return false;
+            }
+
+            if (what.selectedIndex < 1) {
+                alert("Please select photo id proof.");
+                what.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+     <style>
+        div {
+            
+            width: 100%;
+            float: left;
+            align-content: center;
+            align-items: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+        <h1 style="text-align: center;">REGISTRATION FORM</h1>
+        <form name="RegForm" action="/submit.php" 
+              onsubmit="return required()" method="post">
+            <p>Name: <input type="text" 
+                            size="65" name="Name" /></p>
+            <br />
+            <p>Telephone: <input type="tel" 
+                         name="Telephone" /></p>
+            <br />
+            <p>
+                Photo I'd Proof : 
+                <select type="text"  name="Proof">
+                    <option value="AC">Aadhar Card</option>
+                    <option value="RC">Driving License</option>
+                    <option value="AD">Pan Card</option>
+                    <option value="SU">Passport</option>
+                    <option value="SU">Pension Passbook</option>
+                </select>
+            </p>
+            <br />
+            <p>
+                Photo Id No. :
+                <input type="number" name="number">
+            </p>
+            <p>
+                Age : <input type="number" name="age">
+            </p>
+            <br>
+            <p>
+                Gender : 
+                <input type="radio" name="estatus" value="employed" />Female
+                <input type="radio" name="estatus" value="unemployed" />Male
+                <input type="radio" name="estatus" value="student" />Other
+            </p>
+            <p>
+                <input type="submit" value="submit" name="Submit" />
+                <input type="reset" value="reset" name="Reset" />
+            </p>
+        </form>
+</body>
+</html>
